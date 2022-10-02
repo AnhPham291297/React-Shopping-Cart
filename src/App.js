@@ -11,7 +11,7 @@ import Contact from "./views/Contact/Contact";
 import PrivateRoute from "./components/PrivateRoute";
 import Login from "./views/Login/Login";
 import Signup from "./views/Signup/Signup";
-import Checkout from "./views/Checkout/Checkout";
+import Checkout from "./views/CheckoutForm/Checkout/Checkout";
 
 function App() {
   return (

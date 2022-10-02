@@ -26,6 +26,7 @@ const Signup = (props) => {
   const classes = useStyles();
   const { signup } = useAuth();
   const [user, setUser] = useState({
+    name: '',
     email: '',
     password: '',
     passwordConfirm: ''
@@ -70,6 +71,17 @@ const Signup = (props) => {
           </Typography>
           {error && <Alert severity="error" >{error}</Alert>}
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Your Name"
+              name="name"
+              autoComplete="name"
+              autoFocus
+              onChange={handleChange}
+            />
             <TextField
               margin="normal"
               required

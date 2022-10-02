@@ -20,14 +20,13 @@ const navItems = [
   { id: 3, title: 'About', path: '/about' },
   // { id: 4, title: 'Contact', path: '/contact' },
 ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export default function Navbar() {
   const state = useSelector((state) => state.handleCartReducer);
   const classes = useStyles();
   const auth = getAuth()
   const [user, setUser] = useState(null);
-  const {logout} = useAuth();
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -37,7 +36,7 @@ export default function Navbar() {
         setUser(null)
       }
     })
-  }, [])
+  }, [user])
 
   const handleLogout = () => {
     auth.signOut();
@@ -71,6 +70,12 @@ export default function Navbar() {
                 <LinkMui to={item.path} className={classes.navLink}>{item.title}</LinkMui>
               </li>
             ))}
+            {
+              user &&
+              <li>
+                <LinkMui to='/checkout' className={classes.navLink}>Checkout</LinkMui>
+              </li>
+            }
           </Box>
           <Box className={classes.navRight}>
             <Box className={classes.search}>

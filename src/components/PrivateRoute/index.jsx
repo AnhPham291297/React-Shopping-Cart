@@ -5,6 +5,8 @@ import { useAuth } from '../../Context/AuthContext';
 const PrivateRoute = (props) => {
   const { currentUser } = useAuth();
 
+  console.log('props children', props.children);
+
   //! Render
   if (currentUser) {
     return props.children;
